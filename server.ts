@@ -98,6 +98,16 @@ app.get("/api/peerinfo", async (_req, res) => {
   }
 });
 
+app.get("/api/mininginfo", async (_req, res) => {
+  try {
+    const info = await callRpc("getmininginfo");
+    res.json(info);
+  } catch (e: any) {
+    console.error("Error in /api/mininginfo:", e.message);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
 // Health check endpoint
 app.get("/health", (_req, res) => {
   res.json({ status: "OK", timestamp: new Date().toISOString() });
