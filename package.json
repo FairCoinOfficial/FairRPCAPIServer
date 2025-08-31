@@ -2,9 +2,10 @@
   "name": "fairserver",
   "version": "1.0.0",
   "type": "module",
-  "main": "index.js",
+  "main": "dist/server.js",
   "scripts": {
-    "start": "node server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
     "dev": "tsx server.ts"
   },
   "dependencies": {
